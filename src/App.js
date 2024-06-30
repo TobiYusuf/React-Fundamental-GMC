@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from "react";
+import Name from "./Name";
+import Price from "./Price";
+import Description from "./Description";
+import productData from "./Product";
 
-function App() {
+const App = () => {
+  const firstName = "Tobi"; // Replace with your actual first name
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="card">
+        <div className="card-body">
+          <Name name={productData.name} />
+          <Price price={productData.price} />
+          <Description description={productData.description} />
+        </div>
+      </div>
+      <div>
+        <p>Hello, {firstName ? firstName : "there!"}</p>
+        {firstName && (
+          <img src={productData.image} width="200px" alt="Product" />
+        )}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
